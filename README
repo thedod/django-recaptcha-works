@@ -1,0 +1,32 @@
+"""
+An easy-to-use Django forms integration of the reCaptcha service.
+
+
+To use, simply base your form off the ``RecaptchaForm`` class. This class adds
+a new argument that must be provided to the form, ``remote_ip``.
+
+Two settings which must be set in your project's ``settings`` module are 
+``RECAPTCHA_PUBLIC_KEY`` and ``RECAPTCHA_PRIVATE_KEY``, the public and private
+keys for your domain, respectively. 
+
+Following is an example of creating a basic comment form class and then
+using an instance of the form in a view::
+
+    from django import forms
+    from mysite.utils import recaptcha
+
+    class CommentForm(recaptcha.RecaptchaForm):
+        name = forms.CharField()
+        comment = forms.CharField(widget=Textarea())
+        captcha = recaptcha.RecaptchaField()
+
+    def comment(request):
+        comment_form = CommentForm(remote_ip=request.META['REMOTE_ADDR'])
+        ...
+
+If you need to use a different base form (such as ``ModelForm``), use multiple
+inheritance like so::
+
+    class MyModelForm(BaseRecaptchaForm, ModelForm):
+        ...
+"""
