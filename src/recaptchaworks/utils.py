@@ -52,9 +52,10 @@ import httplib
 from django.utils.http import urlencode
 
 from recaptchaworks.exceptions import RecaptchaError
-        
+from recaptchaworks import settings
 
-def validate_recaptcha(remote_ip, challenge, response, private_key):
+
+def validate_recaptcha(remote_ip, challenge, response, private_key, use_ssl):
     assert challenge, 'No challenge was provided for reCaptcha validation'
     # Request validation from recaptcha.net
     params = dict(privatekey=private_key, remoteip=remote_ip,
@@ -62,8 +63,11 @@ def validate_recaptcha(remote_ip, challenge, response, private_key):
     params = urlencode(params)
     headers = {"Content-type": "application/x-www-form-urlencoded",
                "Accept": "text/plain"}
-    conn = httplib.HTTPConnection("api-verify.recaptcha.net")
-    conn.request("POST", "/verify", params, headers)
+    if use_ssl:
+        conn = httplib.HTTPSConnection("www.google.com")
+    else:
+        conn = httplib.HTTPConnection("www.google.com")
+    conn.request("POST", "/recaptcha/api/verify", params, headers)
     response = conn.getresponse()
     if response.status == 200:
         data = response.read()

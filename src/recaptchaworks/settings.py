@@ -55,19 +55,29 @@ RECAPTCHA_PRIVATE_KEY = getattr(settings, 'RECAPTCHA_PRIVATE_KEY', '')
 RECAPTCHA_PUBLIC_KEY = getattr(settings, 'RECAPTCHA_PUBLIC_KEY', '')
 RECAPTCHA_USE_SSL = getattr(settings, 'RECAPTCHA_USE_SSL', True)
 
-_RECAPTCHA_OPTIONS_SCRIPT_HTML = u'''<script type="text/javascript">
-   var RecaptchaOptions = %r;
-</script>
-'''
-RECAPTCHA_OPTIONS_SCRIPT_HTML = getattr(settings, 'RECAPTCHA_OPTIONS_SCRIPT_HTML', _RECAPTCHA_OPTIONS_SCRIPT_HTML)
+# See the following page for valid options:
+# http://code.google.com/apis/recaptcha/docs/customization.html
+_RECAPTCHA_OPTIONS = {
+    'theme': 'red',
+    'lang': 'en',
+    'tabindex': 0,
+    #'custom_translations': {},
+    #'custom_theme_widget': None
+    }
+RECAPTCHA_OPTIONS = getattr(settings, 'RECAPTCHA_OPTIONS', _RECAPTCHA_OPTIONS)
 
-_RECAPTCHA_HTML = u'''%(options)s<script type="text/javascript" src="http://api.recaptcha.net/challenge?k=%(public_key)s"></script>
+_RECAPTCHA_HTML = u'''
+%(options)s
+<script type="text/javascript"
+   src="%(proto)s://www.google.com/recaptcha/api/challenge?k=%(public_key)s">
+</script>
 <noscript>
-   <iframe src="http://api.recaptcha.net/noscript?k=%(public_key)s"
-       height="300" width="500" frameborder="0"></iframe><br />
+   <iframe src="%(proto)s://www.google.com/recaptcha/api/noscript?k=%(public_key)s"
+       height="300" width="500" frameborder="0"></iframe><br>
    <textarea name="recaptcha_challenge_field" rows="3" cols="40">
    </textarea>
-   <input type="hidden" name="recaptcha_response_field" value="manual_challenge" />
-</noscript>'''
+   <input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+</noscript>
+'''
 RECAPTCHA_HTML = getattr(settings, 'RECAPTCHA_HTML', _RECAPTCHA_HTML)
 

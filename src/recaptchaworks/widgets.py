@@ -50,41 +50,51 @@
 
 from django import forms
 from django.utils.safestring import mark_safe
+from django.utils import simplejson
 
 from recaptchaworks import settings
 
 
 class RecaptchaWidget(forms.Widget):
-    def __init__(self, theme=None, tabindex=None, public_key=None):
+    
+    RECAPTCHA_OPTIONS_SCRIPT = u'''<script type="text/javascript">
+var RecaptchaOptions = {
+%s
+};
+</script>
+'''
+    
+    def __init__(self, recaptcha_options=None, public_key=None, use_ssl=False):
         '''
-        From http://recaptcha.net/apidocs/captcha/client.html#look-n-feel:
-
-            theme:      'red' | 'white' | 'blackglass' | 'clean'
-    
-                Defines which theme to use for reCAPTCHA.
-    
-            tabindex:   any integer
-    
-                Sets a tabindex for the reCAPTCHA text box. If other elements
-                in the form use a tabindex, this should be set so that
-                navigation is easier for the user.
-            
+        
+        http://code.google.com/apis/recaptcha/docs/customization.html
+        
+        The optional ``recaptcha_options`` argument can be used to override
+        the default project wide ``RECAPTCHA_OPTIONS`` setting.
+        
         The optional ``public_key`` argument can be used to override the
         default use of the project-wide ``RECAPTCHA_PUBLIC_KEY`` setting.
+        
+        The optional ``use_ssl`` argument can be used to override the default
+        use of the project-wide ``RECAPTCHA_USE_SSL`` setting.
         '''
-        options = {}
-        if theme:
-            options['theme'] = theme
-        if tabindex:
-            options['tabindex'] = tabindex
-        self.options = options
+        self.options = recaptcha_options
+        if recaptcha_options is None:
+            self.options = settings.RECAPTCHA_OPTIONS
+        
+        self.proto = 'http'
+        if use_ssl or settings.RECAPTCHA_USE_SSL:
+            self.proto = 'https'
+        
         self.public_key = public_key or settings.RECAPTCHA_PUBLIC_KEY
+        
         super(RecaptchaWidget, self).__init__()
 
     def render(self, name, value, attrs=None):
-        args = dict(public_key=self.public_key, options='')
+        args = dict(public_key=self.public_key, proto=self.proto, options='')
         if self.options:
-            args['options'] = settings.RECAPTCHA_OPTIONS_SCRIPT_HTML % self.options
+            args['options'] = self.RECAPTCHA_OPTIONS_SCRIPT % simplejson.dumps(
+                self.options, indent=4).strip('{}')
         return mark_safe(settings.RECAPTCHA_HTML % args)
 
     def value_from_datadict(self, data, files, name):
@@ -94,4 +104,3 @@ class RecaptchaWidget(forms.Widget):
 
     def id_for_label(self, id_):
         return None
-

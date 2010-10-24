@@ -68,13 +68,14 @@ class RecaptchaField(forms.Field):
             '%(code)s.',
     }
 
-    def __init__(self, private_key=None, *args, **kwargs):
+    def __init__(self, private_key=None, use_ssl=False, *args, **kwargs):
         """
         The optional ``private_key`` argument can be used to override the
         default use of the project-wide ``RECAPTCHA_PRIVATE_KEY`` setting.
         """
         self.remote_ip = None
         self.private_key = private_key or settings.RECAPTCHA_PRIVATE_KEY
+        self.use_ssl = use_ssl or settings.RECAPTCHA_USE_SSL
         super(RecaptchaField, self).__init__(*args, **kwargs)
 
     def clean(self, value):
@@ -88,7 +89,7 @@ class RecaptchaField(forms.Field):
             raise forms.ValidationError(self.error_messages['required'])
         try:
             value = validate_recaptcha(self.remote_ip, challenge, response,
-                                       self.private_key)
+                                       self.private_key, self.use_ssl)
         except RecaptchaError, e:
             if e.code == 'incorrect-captcha-sol':
                 raise forms.ValidationError(self.error_messages['invalid'])
