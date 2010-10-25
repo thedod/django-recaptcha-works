@@ -45,7 +45,7 @@
 #  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-VERSION = (2, 0, 2, 'final', 0)
+VERSION = (0, 2, 2, 'final', 0)
 
 def get_version():
     version = '%d.%d.%d' % (VERSION[0], VERSION[1], VERSION[2])
