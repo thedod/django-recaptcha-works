@@ -65,7 +65,9 @@ var RecaptchaOptions = {
 '''
     
     def __init__(self, recaptcha_options=None, public_key=None, use_ssl=False):
-        '''
+        '''RecaptchaWidget constructor
+        
+        For customization information visit:
         
         http://code.google.com/apis/recaptcha/docs/customization.html
         
@@ -100,7 +102,7 @@ var RecaptchaOptions = {
     def value_from_datadict(self, data, files, name):
         challenge = data.get('recaptcha_challenge_field')
         response = data.get('recaptcha_response_field')
-        # This is added by the recaptcha middleware
+        # This is added by utils.post_payload_add_recaptcha_remote_ip_field()
         remote_ip = data.get('recaptcha_remote_ip_field')
         return (challenge, response, remote_ip)
 
