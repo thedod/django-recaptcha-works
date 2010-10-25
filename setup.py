@@ -3,7 +3,7 @@
 #
 #  This file is part of django-recaptcha-works.
 #
-#  django-recaptcha-works is an easy-to-use Django forms integration of the
+#  django-recaptcha-works provides a Django form field that integrates the
 #  reCaptcha service.
 #
 #  Based on the code snippet #1644 as published on:
@@ -11,9 +11,6 @@
 #
 #  Copyright (c) 2009-2010 Chris Beaven (SmileyChris), http://smileychris.com/
 #  Copyright (c) 2010 George Notaras <gnot@g-loaded.eu>, http://www.g-loaded.eu/
-#
-#  django-recaptcha-works is based on the code snippet #1644 as published on:
-#    - http://djangosnippets.org/snippets/1644/
 #
 #  Development Web Site:
 #    - http://www.codetrax.org/projects/django-recaptcha-works

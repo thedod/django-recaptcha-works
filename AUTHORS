@@ -9,3 +9,5 @@ George Notaras <gnot@g-loaded.eu>, http://www.g-loaded.eu/
   * SSL support
   * migration to the Google hosted reCAPTCHA API
   * extension of the available app settings
+  * addition of a decorator that adds the remote IP to the submitted form
+  
