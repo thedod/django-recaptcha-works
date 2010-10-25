@@ -61,7 +61,7 @@ var RecaptchaOptions = {
 </script>
 '''
     
-    def __init__(self, recaptcha_options=None, public_key=None, use_ssl=False):
+    def __init__(self, public_key=None, use_ssl=False, recaptcha_options=None):
         '''RecaptchaWidget constructor
         
         For customization information visit:

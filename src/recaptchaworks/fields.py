@@ -54,7 +54,7 @@ from recaptchaworks.utils import validate_recaptcha
 
 
 class RecaptchaField(forms.Field):
-    widget = RecaptchaWidget
+    
     default_error_messages = {
         'required': u'Please enter the CAPTCHA solution.',
         'invalid': u'An incorrect CAPTCHA solution was entered.',
@@ -65,13 +65,26 @@ class RecaptchaField(forms.Field):
             '%(code)s.',
     }
 
-    def __init__(self, private_key=None, use_ssl=False, *args, **kwargs):
-        """
+    def __init__(self, private_key=None, public_key=None, use_ssl=False,
+                recaptcha_options=None, *args, **kwargs):
+        """Field constructor
+        
+        The optional ``public_key`` argument can be used to override the
+        default use of the project-wide ``RECAPTCHA_PUBLIC_KEY`` setting.
+        
         The optional ``private_key`` argument can be used to override the
         default use of the project-wide ``RECAPTCHA_PRIVATE_KEY`` setting.
+        
+        The optional ``use_ssl`` argument can be used to override the default
+        use of the project-wide ``RECAPTCHA_USE_SSL`` setting.
+        
+        The optional ``recaptcha_options`` argument can be used to override
+        the default project wide ``RECAPTCHA_OPTIONS`` setting.
+        
         """
         self.private_key = private_key or settings.RECAPTCHA_PRIVATE_KEY
         self.use_ssl = use_ssl or settings.RECAPTCHA_USE_SSL
+        kwargs['widget'] = RecaptchaWidget(public_key, use_ssl, recaptcha_options)
         super(RecaptchaField, self).__init__(*args, **kwargs)
 
     def clean(self, value):
