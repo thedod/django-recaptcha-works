@@ -85,3 +85,13 @@ def validate_recaptcha(remote_ip, challenge, response, private_key, use_ssl):
     # Return dictionary
     return result
 
+
+def post_payload_add_recaptcha_remote_ip_field(request):
+    if request.method == 'POST':
+        if 'recaptcha_challenge_field' in request.POST and 'recaptcha_response_field' in request.POST:
+            # This is a recaptcha protected form
+            data = request.POST.copy()
+            data['recaptcha_remote_ip_field'] = request.META['REMOTE_ADDR']
+            request.POST = data
+    return request
+
