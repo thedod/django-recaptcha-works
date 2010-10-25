@@ -100,7 +100,10 @@ var RecaptchaOptions = {
     def value_from_datadict(self, data, files, name):
         challenge = data.get('recaptcha_challenge_field')
         response = data.get('recaptcha_response_field')
-        return (challenge, response)
+        # This is added by the recaptcha middleware
+        remote_ip = data.get('recaptcha_remote_ip_field')
+        return (challenge, response, remote_ip)
 
     def id_for_label(self, id_):
         return None
+
