@@ -83,8 +83,8 @@ if __name__=='__main__':
         maintainer = 'George Notaras',
         maintainer_email = 'gnot@g-loaded.eu',
         url = 'http://www.codetrax.org/projects/django-recaptcha-works',
-        description = 'django-recaptcha-works is an easy-to-use Django forms integration of the reCaptcha service.',
-        long_description = 'django-recaptcha-works is an easy-to-use Django forms integration of the reCaptcha service.',
+        description = 'django-recaptcha-works provides a Django form field that integrates the reCaptcha service.',
+        long_description = 'django-recaptcha-works provides a Django form field that integrates the reCaptcha service.',
         download_url = 'https://source.codetrax.org/hgroot/django-recaptcha-works',
         classifiers = [
             'Development Status :: 4 - Beta',
