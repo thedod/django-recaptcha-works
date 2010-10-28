@@ -73,7 +73,7 @@ Usage
 recaptchaworks provides a form field which can be attached to your forms.
 Implementing a reCaptcha protected form is a two step process.
 
-Step 1: Create the reCaptcha preotected form:
+Step 1: Create the reCaptcha protected form:
 
     from django import forms
     from recaptchaworks.fields import RecaptchaField
