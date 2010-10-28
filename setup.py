@@ -71,7 +71,7 @@ sys.path.append(os.path.abspath('src'))
 
 from setuptools import setup, find_packages
 
-from recaptcha_works import get_version 
+from recaptchaworks import get_version 
 
 
 if __name__=='__main__':
