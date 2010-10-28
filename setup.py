@@ -78,7 +78,7 @@ if __name__=='__main__':
     setup(
         name = 'django-recaptcha-works',
         version = get_version(),
-        author = 'Chris Beaven, George Notaras',
+        author = 'George Notaras',
         author_email = 'gnot@g-loaded.eu',
         maintainer = 'George Notaras',
         maintainer_email = 'gnot@g-loaded.eu',
