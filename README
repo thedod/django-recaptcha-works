@@ -9,13 +9,15 @@ The app is based on the code snippet #1644 as published by Chris Beaven
 
 The original code has been further modified by George Notaras in order to
 implement the following:
-  * prepare a Django application release
-  * SSL support
-  * migration to the Google hosted reCAPTCHA API
-  * extension of the available application settings
-  * addition of a decorator that adds the remote IP to the submitted form
+
+- transform the snippet to a Django application release
+- add SSL support for both the captcha presentation and the communication
+  with the reCaptcha servers 
+- migration to the Google-hosted reCaptcha API
+- extension of the available application settings
+- addition of a decorator that adds the remote IP to the submitted form
  
-Development Web Site:
+Development Web Site and Issue Tracker:
   - http://www.codetrax.org/projects/django-recaptcha-works
 
 Public Source Code Repository:
