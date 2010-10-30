@@ -52,3 +52,27 @@ def get_version():
     return version
 
 
+long_description = """
+*django-recaptcha-works* provides a Django form field that integrates the
+reCaptcha service. It is released under the terms of the BSD License.
+
+The app is based on the code `snippet 1644 <http://djangosnippets.org/snippets/1644/>`_
+as published by *Chris Beaven* (aka SmileyChris).
+
+The original code has been further modified by *George Notaras* in order to
+implement the following:
+
+- transform the snippet to a Django application release
+- add SSL support for both the captcha presentation and the communication with the reCaptcha servers 
+- migration to the Google-hosted reCaptcha API
+- extension of the available application settings
+- addition of a decorator that adds the remote IP to the submitted form
+
+More information about the installation, configuration and usage of this app
+can be found in the **README** file inside the distribution package or in the
+project's `wiki <http://www.codetrax.org/projects/django-recaptcha-works/wiki>`_.
+
+Spotted a bug or have a feature request? Feel free to file a report at the
+project's `issue tracker <http://www.codetrax.org/projects/django-recaptcha-works/issues>`_.
+
+"""
