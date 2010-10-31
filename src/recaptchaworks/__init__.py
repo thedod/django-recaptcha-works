@@ -45,7 +45,7 @@
 #  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-VERSION = (0, 2, 3, 'final', 0)
+VERSION = (0, 2, 4, 'final', 0)
 
 def get_version():
     version = '%d.%d.%d' % (VERSION[0], VERSION[1], VERSION[2])
@@ -55,6 +55,8 @@ def get_version():
 long_description = """
 *django-recaptcha-works* provides a Django form field that integrates the
 reCaptcha service. It is released under the terms of the BSD License.
+
+This reCaptcha implementation has no extra requirements other than Django.
 
 The app is based on the code `snippet 1644 <http://djangosnippets.org/snippets/1644/>`_
 as published by *Chris Beaven* (aka SmileyChris).
