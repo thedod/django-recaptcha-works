@@ -3,6 +3,8 @@ django-recaptcha-works
 django-recaptcha-works provides a Django form field that integrates the
 reCaptcha service. It is released under the terms of the BSD License.
 
+This reCaptcha implementation has no extra requirements other than Django.
+
 The app is based on the code snippet #1644 as published by Chris Beaven
 (aka SmileyChris) on:
   - http://djangosnippets.org/snippets/1644/
