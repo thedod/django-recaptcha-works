@@ -69,7 +69,7 @@ import sys
 import os
 sys.path.append(os.path.abspath('src'))
 
-from setuptools import setup, find_packages
+from distutils.core import setup
 
 from recaptchaworks import get_version, long_description
 
@@ -100,7 +100,6 @@ if __name__=='__main__':
         ],
         license = 'BSD License (3 clause)',
         package_dir = {'': 'src'},
-        packages = find_packages(),
-        include_package_data = True,
+        packages = ['recaptchaworks',],
     )
 
