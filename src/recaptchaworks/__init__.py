@@ -74,7 +74,8 @@ More information about the installation, configuration and usage of this app
 can be found in the **README** file inside the distribution package or in the
 project's `wiki <http://www.codetrax.org/projects/django-recaptcha-works/wiki>`_.
 
-Spotted a bug or have a feature request? Feel free to file a report at the
-project's `issue tracker <http://www.codetrax.org/projects/django-recaptcha-works/issues>`_.
+In case you run into any problems while using this application it is highly
+recommended you file a bug report at the project's
+`issue tracker <http://www.codetrax.org/projects/django-recaptcha-works/issues>`_.
 
 """
