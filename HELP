@@ -46,13 +46,13 @@ Add it to the INSTALLED_APPS in settings.py:
 
 INSTALLED_APPS = (
     ...
-    'recaptchaworks',
+    'recaptcha_works',
 )
 
 
 Configuration
 =============
-The recaptchaworks app accepts the following configuration options:
+The recaptcha_works app accepts the following configuration options:
 
 RECAPTCHA_PUBLIC_KEY: The public key as obtained from google.com/recaptcha
 
@@ -79,13 +79,13 @@ RECAPTCHA_OPTIONS = {
 
 Usage
 =====
-recaptchaworks provides a form field which can be attached to your forms.
+recaptcha_works provides a form field which can be attached to your forms.
 Implementing a reCaptcha protected form is a two step process.
 
 Step 1: Create the reCaptcha protected form:
 
     from django import forms
-    from recaptchaworks.fields import RecaptchaField
+    from recaptcha_works.fields import RecaptchaField
     
     class RecaptchaProtectedForm(forms.Form):
         # ... other form fields
@@ -97,7 +97,7 @@ argument for the verification of the information the user has submitted in the
 reCaptcha field, but it cannot be added to the form field automatically due to
 limitations of the Django framework.
 
-    from recaptchaworks.decorators import fix_recaptcha_remote_ip
+    from recaptcha_works.decorators import fix_recaptcha_remote_ip
     
     @fix_recaptcha_remote_ip
     def view(request, *args, **kwargs):

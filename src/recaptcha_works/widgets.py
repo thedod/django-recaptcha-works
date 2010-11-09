@@ -49,7 +49,7 @@ from django import forms
 from django.utils.safestring import mark_safe
 from django.utils import simplejson
 
-from recaptchaworks import settings
+from recaptcha_works import settings
 
 
 class RecaptchaWidget(forms.Widget):
