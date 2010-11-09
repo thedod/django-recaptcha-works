@@ -15,7 +15,7 @@
 #  Based on the code snippet #1644 as published on:
 #    - http://djangosnippets.org/snippets/1644/
 #
-#  Copyright (c) 2009-2010 Chris Beaven, http://smileychris.com/
+#  Copyright 2009-2010 Chris Beaven, http://smileychris.com/
 #
 #  Licensed under the BSD License.
 #
