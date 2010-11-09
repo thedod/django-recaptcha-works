@@ -1,5 +1,7 @@
-django-recaptcha-works Authors
-------------------------------
+django-recaptcha-works Authors and Contributors
+------------------------------------------------------------------------
+django-recaptcha-works has been developed by:
+
 Chris Beaven (SmileyChris), http://smileychris.com/
   * author of the original code as published on djangosnippets.org:
     - http://djangosnippets.org/snippets/1644/
@@ -11,4 +13,4 @@ George Notaras <gnot@g-loaded.eu>, http://www.g-loaded.eu/
   * extension of the available app settings
   * addition of a decorator that adds the remote IP to the submitted form
   * Fixed recaptcha options and key overrides
-  
+ 

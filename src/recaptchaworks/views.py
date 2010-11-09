@@ -5,17 +5,17 @@
 #  django-recaptcha-works provides a Django form field that integrates the
 #  reCaptcha service.
 #
+#  Development Web Site:
+#    - http://www.codetrax.org/projects/django-recaptcha-works
+#  Public Source Code Repository:
+#    - https://source.codetrax.org/hgroot/django-recaptcha-works
+#
+#  Copyright 2010 George Notaras <gnot [at] g-loaded.eu>
+#
 #  Based on the code snippet #1644 as published on:
 #    - http://djangosnippets.org/snippets/1644/
 #
-#  Copyright (c) 2009-2010 Chris Beaven (SmileyChris), http://smileychris.com/
-#  Copyright (c) 2010 George Notaras <gnot@g-loaded.eu>, http://www.g-loaded.eu/
-#
-#  Development Web Site:
-#    - http://www.codetrax.org/projects/django-recaptcha-works
-#
-#  Public Source Code Repository:
-#    - https://source.codetrax.org/hgroot/django-recaptcha-works
+#  Copyright (c) 2009-2010 Chris Beaven, http://smileychris.com/
 #
 #  Licensed under the BSD License.
 #

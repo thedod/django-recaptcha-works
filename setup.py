@@ -6,17 +6,17 @@
 #  django-recaptcha-works provides a Django form field that integrates the
 #  reCaptcha service.
 #
+#  Development Web Site:
+#    - http://www.codetrax.org/projects/django-recaptcha-works
+#  Public Source Code Repository:
+#    - https://source.codetrax.org/hgroot/django-recaptcha-works
+#
+#  Copyright 2010 George Notaras <gnot [at] g-loaded.eu>
+#
 #  Based on the code snippet #1644 as published on:
 #    - http://djangosnippets.org/snippets/1644/
 #
-#  Copyright (c) 2009-2010 Chris Beaven (SmileyChris), http://smileychris.com/
-#  Copyright (c) 2010 George Notaras <gnot@g-loaded.eu>, http://www.g-loaded.eu/
-#
-#  Development Web Site:
-#    - http://www.codetrax.org/projects/django-recaptcha-works
-#
-#  Public Source Code Repository:
-#    - https://source.codetrax.org/hgroot/django-recaptcha-works
+#  Copyright (c) 2009-2010 Chris Beaven, http://smileychris.com/
 #
 #  Licensed under the BSD License.
 #
@@ -69,19 +69,19 @@ import sys
 import os
 sys.path.insert(0, os.path.abspath('src'))
 
-from distutils.core import setup
+from setuptools import setup
 
-from recaptchaworks import get_version, long_description
-
+from recaptcha_works import get_version, long_description
 
 if __name__=='__main__':
     setup(
         name = 'django-recaptcha-works',
         version = get_version(),
+        license = 'BSD License',
         author = 'George Notaras',
-        author_email = 'gnot@g-loaded.eu',
+        author_email = 'gnot [at] g-loaded.eu',
         maintainer = 'George Notaras',
-        maintainer_email = 'gnot@g-loaded.eu',
+        maintainer_email = 'gnot [at] g-loaded.eu',
         url = 'http://www.codetrax.org/projects/django-recaptcha-works',
         description = 'django-recaptcha-works provides a Django form field that integrates the reCaptcha service.',
         long_description = long_description,
@@ -95,11 +95,13 @@ if __name__=='__main__':
             'Natural Language :: English',
             'Operating System :: OS Independent',
             'Programming Language :: Python',
+            'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
             'Topic :: Software Development :: Libraries :: Application Frameworks',
             'Topic :: Software Development :: Libraries :: Python Modules',
         ],
-        license = 'BSD License (3 clause)',
         package_dir = {'': 'src'},
-        packages = ['recaptchaworks',],
+        packages = ['recaptcha_works'],
+        include_package_data = True,
+        #zip_safe = False,
     )
 
