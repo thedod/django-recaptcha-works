@@ -13,4 +13,6 @@ George Notaras <gnot@g-loaded.eu>, http://www.g-loaded.eu/
   * extension of the available app settings
   * addition of a decorator that adds the remote IP to the submitted form
   * Fixed recaptcha options and key overrides
- 
+  * Support for overriding the reCaptcha field validation to facilitate
+    form testing
+
