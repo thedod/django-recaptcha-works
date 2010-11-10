@@ -16,3 +16,9 @@ George Notaras <gnot@g-loaded.eu>, http://www.g-loaded.eu/
   * Support for overriding the reCaptcha field validation to facilitate
     form testing
 
+
+The following people have contributed to this project in one way or another:
+
+  * Yann Malet <yann.malet [at] gmail.com>
+    - support for checking the ``required`` attribute of the reCaptcha field.
+
