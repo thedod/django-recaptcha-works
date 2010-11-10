@@ -97,16 +97,23 @@ class RecaptchaField(forms.Field):
         if not challenge:
             raise forms.ValidationError(self.error_messages['challenge-error'])
         if not response:
-            raise forms.ValidationError(self.error_messages['required'])
+            if self.required:
+                raise forms.ValidationError(self.error_messages['required'])
         if not remote_ip:
             raise forms.ValidationError(self.error_messages['no-remote-ip'])
         try:
             value = validate_recaptcha(remote_ip, challenge, response,
                                        self.private_key, self.use_ssl)
         except RecaptchaError, e:
-            if e.code == 'incorrect-captcha-sol':
-                raise forms.ValidationError(self.error_messages['invalid'])
-            raise forms.ValidationError(self.error_messages['unknown-error'] %
-                                        {'code': e.code})
+            # If the ``required`` attribute has been set to False, do not
+            # raise any errors, but pass validation instead. This is meant
+            # to be used as a validation override for a single reCaptcha
+            # protected form, instead of using the global override switch
+            # RECAPTCHA_VALIDATION_OVERRIDE
+            if self.required:
+                if e.code == 'incorrect-captcha-sol':
+                    raise forms.ValidationError(self.error_messages['invalid'])
+                raise forms.ValidationError(self.error_messages['unknown-error'] %
+                                            {'code': e.code})
         return value
 
