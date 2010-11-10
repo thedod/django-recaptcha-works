@@ -55,16 +55,16 @@ from recaptcha_works.utils import post_payload_add_recaptcha_remote_ip_field
 
 
 def fix_recaptcha_remote_ip(view_func):
-    """
+    """Fills the ``recaptcha_remote_ip_field`` with the REMOTE_ADDR.
+    
     Modifies a view function so that its request object's POST payload
     contains a ``recaptcha_remote_ip_field`` field, which is required for
     proper reCaptcha functionality.
     
     """
-    def wrapped_view(*args, **kwargs):
-        args = list(args)
-        args[0] = post_payload_add_recaptcha_remote_ip_field(args[0])
-        resp = view_func(*args, **kwargs)
+    def wrapped_view(request, *args, **kwargs):
+        request = post_payload_add_recaptcha_remote_ip_field(request)
+        resp = view_func(request, *args, **kwargs)
         return resp
     return wraps(view_func, assigned=available_attrs(view_func))(wrapped_view)
 
