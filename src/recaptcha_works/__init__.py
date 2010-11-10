@@ -59,18 +59,21 @@ reCaptcha service. It is released under the terms of the BSD License.
 This reCaptcha implementation has no extra requirements other than Django.
 
 The app is based on the code `snippet 1644 <http://djangosnippets.org/snippets/1644/>`_
-as published by *Chris Beaven* (aka SmileyChris).
+as published by *Chris Beaven*.
 
 The original code has been further modified by *George Notaras* in order to
 implement the following:
 
-- transform the snippet to a Django application release
-- add SSL support for both the captcha presentation and the communication with the reCaptcha servers 
-- migration to the Google-hosted reCaptcha API
-- extension of the available application settings
-- addition of a decorator that adds the remote IP to the submitted form
-- support for overriding the reCaptcha field validation to facilitate
-  form testing
+- Transform the snippet to a Django application release.
+- Add SSL support for both the captcha presentation and the communication with
+  the reCaptcha servers. 
+- Migrate to the Google-hosted reCaptcha API.
+- Improve and extend the available application settings.
+- Make it possible to fully override the project-wide reCaptcha settings
+  via field attributes.
+- Add a decorator that adds the remote IP to the submitted form.
+- Add support for overriding the reCaptcha field validation to facilitate
+  form testing.
 
 More information
 ----------------
