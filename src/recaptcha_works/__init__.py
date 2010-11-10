@@ -69,6 +69,8 @@ implement the following:
 - migration to the Google-hosted reCaptcha API
 - extension of the available application settings
 - addition of a decorator that adds the remote IP to the submitted form
+- support for overriding the reCaptcha field validation to facilitate
+  form testing
 
 More information
 ----------------

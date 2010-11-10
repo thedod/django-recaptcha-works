@@ -38,6 +38,10 @@ RECAPTCHA_OPTIONS: A dictionary with the recaptcha customization options.
 Read the following page for more information:
   - http://code.google.com/apis/recaptcha/docs/customization.html
 
+RECAPTCHA_VALIDATION_OVERRIDE: This is a boolean setting which makes it possible
+to override the validation of the reCaptcha field. This is meant to be enabled
+only when testing your application's reCaptcha-protected forms.
+
 Example configuration:
 
 RECAPTCHA_PUBLIC_KEY  = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'

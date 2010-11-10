@@ -78,3 +78,8 @@ _RECAPTCHA_HTML = u'''
 '''
 RECAPTCHA_HTML = getattr(settings, 'RECAPTCHA_HTML', _RECAPTCHA_HTML)
 
+# RECAPTCHA_VALIDATION_OVERRIDE, if set to True, makes it possible to override
+# the validation of the reCaptcha field. This is supposed to be used when
+# testing forms.
+RECAPTCHA_VALIDATION_OVERRIDE = getattr(settings, 'RECAPTCHA_VALIDATION_OVERRIDE', False)
+

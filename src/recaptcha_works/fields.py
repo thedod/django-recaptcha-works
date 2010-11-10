@@ -91,6 +91,9 @@ class RecaptchaField(forms.Field):
         
         value = super(RecaptchaField, self).clean(value)
         challenge, response, remote_ip = value
+        
+        if settings.RECAPTCHA_VALIDATION_OVERRIDE:
+            return value
         if not challenge:
             raise forms.ValidationError(self.error_messages['challenge-error'])
         if not response:
