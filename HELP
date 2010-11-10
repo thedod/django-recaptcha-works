@@ -40,7 +40,11 @@ Read the following page for more information:
 
 RECAPTCHA_VALIDATION_OVERRIDE: This is a boolean setting which makes it possible
 to override the validation of the reCaptcha field. This is meant to be enabled
-only when testing your application's reCaptcha-protected forms.
+only when testing your application's reCaptcha-protected forms. Note that
+this is a global switch which, when enabled, overrides validation of the
+reCaptcha field on all reCaptcha-protected forms. To override the validation
+on a single form, set the ``required=False`` attribute on the reCaptcha field
+on that specific form.
 
 Example configuration:
 
